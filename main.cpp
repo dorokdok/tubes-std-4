@@ -27,4 +27,5 @@ int main()
     cout << endl; cout << endl;
     delete_penjualan(L);
     showData_Sales(L); cout << endl;
+    showData_Sales(L); cout << endl;
 }
