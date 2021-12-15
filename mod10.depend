@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1639034364 source:d:\data amburadul\dio++++++\code kuliah\c++\mod10\main.cpp
+	<iostream>
+	"multi.h"
+
+1639033088 d:\data amburadul\dio++++++\code kuliah\c++\mod10\multi.h
+	<iostream>
+
+1639034254 source:d:\data amburadul\dio++++++\code kuliah\c++\mod10\mll.cpp
+	"multi.h"
+
