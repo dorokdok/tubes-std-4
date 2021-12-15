@@ -46,7 +46,7 @@ struct parentDLL{
 struct childDLL{
     adr_child first;
     adr_child last;
-}
+};
 
 
 #endif // TUBES_H_INCLUDED
