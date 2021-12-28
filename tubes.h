@@ -49,4 +49,13 @@ void deleteChild(parentDLL &List, adr_parent S, int n);
 void showChildfromParent(parentDLL List, adr_parent S);
 void findChild(parentDLL list, adr_parent S, string namaKota);
 void findChildfromAll(parentDLL List, string namaKota);
+
+adr_parent createParent(provinsi dataProvinsi);
+void insertParent(parentDLL &list, adr_parent S);
+adr_parent findParent(parentDLL list, provinsi dataProvinsi);
+void deleteParent(parentDLL &list, provinsi dataProvinsi);
+void showParent(parentDLL list);
+
+
+
 #endif // TUBES_H_INCLUDED

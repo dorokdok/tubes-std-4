@@ -90,3 +90,85 @@ void findChildfromAll(parentDLL List, string namaKota){
         cout << "Kota tidak ditemukan" << endl;
     }
 }
+
+// Mengembalikan address parent yang berisikan data provinsi
+adr_parent createParent(provinsi dataProvinsi){
+    adr_parent Parent;
+    Parent = new elm_parent;
+    info(Parent) = dataProvinsi;
+    next(Parent) = nil;
+    prev(Parent) = nil;
+    kota(Parent) = nil;
+    return (Parent);
+}
+
+// Pada insert parent, kami menggunakan insert last
+void insertParent(parentDLL &list, adr_parent S){
+    if (first(list) == nil){
+        first(list) = S;
+    } else {
+        next(last(list)) = S;
+    }
+}
+
+// Mencari parent berdasarkan data provinsi
+adr_parent findParent(parentDLL list, provinsi dataProvinsi){
+    adr_parent found;
+    if (first(list) == nil){
+        cout << "Tidak ada data pada list" << endl;
+    } else {
+        found = first(list);
+        while (found != nil && info(found) != dataProvinsi){
+            found = next(found);
+        }
+        if (info(found) == dataProvinsi){
+            return found;
+        } else {
+            found = nil;
+            cout << "Data tersebut tidak ditemukan pada list" << endl;
+            return found;
+        }
+    }
+}
+
+// Menggunakan fungsi find dalam pengaplikasian prosedur delete tersebut
+void deleteParent(parentDLL &list,  string dataProvinsi){
+    adr_parent parent;
+    parent = findParent(list, dataProvinsi);
+    if (parent != nil){
+        if (first(list) = parent){
+            first(list) = next(first(list));
+            next(prev(first(list))) = nil;
+            prev(first(list)) = nil;
+        } else if (last(list) = parent){
+            last(list) = prev(last(list));
+            prev(next(last(list))) = nil;
+            next(last(list)) = nil;
+        } else {
+            prev(next(parent)) = prev(parent);
+            next(prev(parent)) = next(parent);
+            prev(parent) = nil;
+            next(parent) = nil;
+        }
+    }
+}
+
+// Menampilkan data provinsi dari list yang ada
+void showParent(parentDLL list){
+    adr_parent p;
+    if (first(list) == nil){
+        cout << "Tidak ada data pada list" << endl;
+    } else {
+        p = first(list);
+        int i = 1;
+        cout << "Berikut data dari seluruh list: " << endl;
+        while (p != nil){
+            p = next(p);
+            cout << "[" << i << "]" << endl;
+            cout << "Nama Provinsi: " << info(p).nama_provinsi << endl;
+            cout << "Nama Ibu Kota: " << info(p).ibu_kota << endl;
+            i++;
+        }
+        cout << endl;
+    }
+}
