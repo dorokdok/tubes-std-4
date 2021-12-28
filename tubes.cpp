@@ -1,5 +1,4 @@
 #include "tubes.h"
-//aa
 
 
 void createNewChild(string namaKota, float suhu, adr_child &p){
