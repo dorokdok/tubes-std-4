@@ -43,10 +43,10 @@ struct parentDLL{
     adr_parent last;
 };
 
-struct childDLL{
-    adr_child first;
-    adr_child last;
-};
-
-
+void createNewChild(string namaKota, float suhu, adr_child &p);
+void insertNewChild(parentDLL &list, adr_parent S, adr_child K);
+void deleteChild(parentDLL &List, adr_parent S, int n);
+void showChildfromParent(parentDLL List, adr_parent S);
+void findChild(parentDLL list, adr_parent S, string namaKota);
+void findChildfromAll(parentDLL List, string namaKota);
 #endif // TUBES_H_INCLUDED
