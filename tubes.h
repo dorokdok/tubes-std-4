@@ -50,6 +50,7 @@ void showChildfromParent(parentDLL List, adr_parent S);
 void findChild(parentDLL list, adr_parent S, string namaKota);
 void findChildfromAll(parentDLL List, string namaKota);
 
+void createParentList(parentDLL &list);
 adr_parent createParent(provinsi dataProvinsi);
 void insertParent(parentDLL &list, adr_parent S);
 adr_parent findParent(parentDLL list, provinsi dataProvinsi);

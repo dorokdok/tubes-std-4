@@ -91,11 +91,17 @@ void findChildfromAll(parentDLL List, string namaKota){
     }
 }
 
+void createParentList(parentDLL &list){
+    first(list) = nil;
+    last(list) = nil;
+}
+
 // Mengembalikan address parent yang berisikan data provinsi
 adr_parent createParent(provinsi dataProvinsi){
     adr_parent Parent;
     Parent = new elm_parent;
-    info(Parent) = dataProvinsi;
+    info(Parent).nama_provinsi = dataProvinsi.nama_provinsi;
+    info(Parent).ibu_kota = dataProvinsi.ibu_kota;
     next(Parent) = nil;
     prev(Parent) = nil;
     kota(Parent) = nil;
@@ -106,8 +112,11 @@ adr_parent createParent(provinsi dataProvinsi){
 void insertParent(parentDLL &list, adr_parent S){
     if (first(list) == nil){
         first(list) = S;
+        last(list) = S;
     } else {
         next(last(list)) = S;
+        prev(S) = last(list);
+        last(list) = S;
     }
 }
 
@@ -118,10 +127,10 @@ adr_parent findParent(parentDLL list, provinsi dataProvinsi){
         cout << "Tidak ada data pada list" << endl;
     } else {
         found = first(list);
-        while (found != nil && info(found) != dataProvinsi){
+        while (found != nil && info(found).ibu_kota != dataProvinsi.ibu_kota && info(found).nama_provinsi != dataProvinsi.nama_provinsi){
             found = next(found);
         }
-        if (info(found) == dataProvinsi){
+        if (info(found).ibu_kota == dataProvinsi.ibu_kota && info(found).nama_provinsi == dataProvinsi.nama_provinsi){
             return found;
         } else {
             found = nil;
@@ -132,15 +141,15 @@ adr_parent findParent(parentDLL list, provinsi dataProvinsi){
 }
 
 // Menggunakan fungsi find dalam pengaplikasian prosedur delete tersebut
-void deleteParent(parentDLL &list,  string dataProvinsi){
+void deleteParent(parentDLL &list,  provinsi dataProvinsi){
     adr_parent parent;
     parent = findParent(list, dataProvinsi);
     if (parent != nil){
-        if (first(list) = parent){
+        if (first(list) == parent){
             first(list) = next(first(list));
             next(prev(first(list))) = nil;
             prev(first(list)) = nil;
-        } else if (last(list) = parent){
+        } else if (last(list) == parent){
             last(list) = prev(last(list));
             prev(next(last(list))) = nil;
             next(last(list)) = nil;
@@ -163,10 +172,10 @@ void showParent(parentDLL list){
         int i = 1;
         cout << "Berikut data dari seluruh list: " << endl;
         while (p != nil){
-            p = next(p);
             cout << "[" << i << "]" << endl;
             cout << "Nama Provinsi: " << info(p).nama_provinsi << endl;
             cout << "Nama Ibu Kota: " << info(p).ibu_kota << endl;
+            p = next(p);
             i++;
         }
         cout << endl;
