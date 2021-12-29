@@ -1,6 +1,8 @@
 #ifndef TUBES_H_INCLUDED
 #define TUBES_H_INCLUDED
 #include <iostream>
+#include <string>
+#include<bits/stdc++.h>
 
 using namespace std;
 
@@ -56,6 +58,9 @@ void insertParent(parentDLL &list, adr_parent S);
 adr_parent findParent(parentDLL list, provinsi dataProvinsi);
 void deleteParent(parentDLL &list, provinsi dataProvinsi);
 void showParent(parentDLL list);
+
+int menu();
+void loopParent(parentDLL List, adr_parent &p, int n);
 
 
 

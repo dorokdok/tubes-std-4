@@ -31,9 +31,13 @@ void deleteChild(parentDLL &List, adr_parent S, int n){
         p = next(p);
     }
     if (p == kota(S)){ //Buat delete first
-        kota(S) = next(p);
-        prev(kota(S)) = nil;
-        next(p) = nil;
+        if (next(p) != nil){
+            kota(S) = next(p);
+            prev(kota(S)) = nil;
+            next(p) = nil;
+        } else {
+            kota(S) = nil;
+        }
     } else if(next(p) == nil){ //Buat delete last
         next(prev(p)) = nil;
         prev(p) = nil;
@@ -47,12 +51,14 @@ void deleteChild(parentDLL &List, adr_parent S, int n){
 
 void showChildfromParent(parentDLL List, adr_parent S){
     adr_child p = kota(S);
+    int i = 1;
     if (p == nil){
         cout << "Tidak terdapat data kota" << endl;
     } else {
         cout << "Daftar kota : " << endl;
         while (p != nil) {
-            cout << "Kota: " << info(p).nama_kota << " Suhu: " << info(p).suhu << endl;
+            cout << i << ". "<<"Kota: " << info(p).nama_kota << " Suhu: " << info(p).suhu << endl;
+            i++;
             p = next(p);
         }
     }
@@ -68,18 +74,18 @@ void findChild(parentDLL list, adr_parent S, string namaKota){
         p = next(p);
     }
     if (p == nil){
-        cout << "Tidak terdapat kota pada provinsi " << info(S).nama_provinsi << endl;
+        cout << "Tidak terdapat kota "<< namaKota <<" pada provinsi " << info(S).nama_provinsi << endl;
     }
 }
 
-void findChildfromAll(parentDLL List, string namaKota){
+void findChildfromAll(parentDLL List, string namaKota){ //FITUR TAMBAHAN
     adr_parent p = first(List);
     while (p != nil){ //Buat looping parent
         adr_child q = kota(p);
         while (q != nil){ //Buat looping child
             if (info(q).nama_kota == namaKota){ //Buat cek
-                cout << "Kota: " << info(q).nama_kota << " Suhu: " << info(q).suhu << endl;
                 cout << "Provinsi: " << info(p).nama_provinsi << " Ibu Kota: " << info(p).ibu_kota << endl;
+                cout << "Kota: " << info(q).nama_kota << " Suhu: " << info(q).suhu << endl;
                 return;
             }
             q = next(q);
@@ -130,7 +136,8 @@ adr_parent findParent(parentDLL list, provinsi dataProvinsi){
         while (found != nil && info(found).ibu_kota != dataProvinsi.ibu_kota && info(found).nama_provinsi != dataProvinsi.nama_provinsi){
             found = next(found);
         }
-        if (info(found).ibu_kota == dataProvinsi.ibu_kota && info(found).nama_provinsi == dataProvinsi.nama_provinsi){
+        if (found != nil){
+            cout << "Terdapat data Provinsi di dalam list" << endl;
             return found;
         } else {
             found = nil;
@@ -180,4 +187,31 @@ void showParent(parentDLL list){
         }
         cout << endl;
     }
+}
+
+void loopParent(parentDLL List, adr_parent &p, int n){
+    p = first(List);
+    for (int i=1; i < n; i++){
+        p = next(p);
+    }
+}
+
+
+int menu(){
+    cout << "Pilihan menu: " << endl;
+    cout << "1. Tambahkan data Provinsi" << endl;
+    cout << "2. Hapus data Provinsi" << endl;
+    cout << "3. Lihat data Provinsi" << endl;
+    cout << "4. Mencari data Provinsi" << endl;
+    cout << "5. Tambahkan data Kota" << endl;
+    cout << "6. Melihat data Kota dari Provinsi tertentu" << endl;
+    cout << "7. Hapus data Kota dari Provinsi tertentu" << endl;
+    cout << "8. Mencari nama Kota dari Provinsi tertentu" << endl;
+    cout << "9. Mencari nama kota dari seluruh Provinsi" << endl;
+    cout << "0. Keluar" << endl;
+
+    int n;
+    cout << "Pilih menu yang diinginkan: "; cin >> n;
+    return n;
+
 }
