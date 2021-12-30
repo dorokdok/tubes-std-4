@@ -212,6 +212,25 @@ int countAllCity(parentDLL List){
     return total;
 }
 
+adr_child maxDegree(parentDLL List){
+    adr_parent p;
+    adr_child x, maximum = nil;
+    int max = 0;
+    p = first(List);
+
+    while (p != nil){
+        x = kota(p);
+        while (x != nil){
+            if(info(x).suhu >= max){
+                max = info(x).suhu;
+                maximum = x;
+            }
+            x = next(x);
+        }
+        p = next(p);
+    }
+    return maximum;
+}
 int menu(){
     cout << "Pilihan menu: " << endl;
     cout << "1. Tambahkan data Provinsi" << endl;
@@ -224,6 +243,7 @@ int menu(){
     cout << "8. Mencari nama Kota dari Provinsi tertentu" << endl;
     cout << "9. Mencari nama kota dari seluruh Provinsi" << endl;
     cout << "10. Mengitung jumlah kota dari seluruh provinsi" << endl;
+    cout << "11. Mencari kota dengan suhu tertinggi" << endl;
     cout << "0. Keluar" << endl;
 
     int n;

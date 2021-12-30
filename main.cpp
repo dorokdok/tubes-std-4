@@ -98,6 +98,13 @@ int main()
                 cout << "Pada list, terdapat sebanyak: " << countAllCity(List) << " kota" << endl;
             }
             cout << endl;
+        } else if (n==11){
+            if (maxDegree(List) == nil){
+                cout << "Tidak ada kota yang tersedia" << endl;
+            } else {
+                cout << "Suhu tertinggi terdapat pada kota: " << info(maxDegree(List)).nama_kota << " dengan suhu: " << info(maxDegree(List)).suhu << endl;
+            }
+            cout << endl;
         }
     }
 }
