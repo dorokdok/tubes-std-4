@@ -195,7 +195,22 @@ void loopParent(parentDLL List, adr_parent &p, int n){
         p = next(p);
     }
 }
+int countAllCity(parentDLL List){
+    adr_parent p;
+    adr_child x;
+    int total = 0;
+    p = first(List);
 
+    while (p != nil){
+        x = kota(p);
+        while (x != nil){
+            x = next(x);
+            total++;
+        }
+        p = next(p);
+    }
+    return total;
+}
 
 int menu(){
     cout << "Pilihan menu: " << endl;
@@ -208,6 +223,7 @@ int menu(){
     cout << "7. Hapus data Kota dari Provinsi tertentu" << endl;
     cout << "8. Mencari nama Kota dari Provinsi tertentu" << endl;
     cout << "9. Mencari nama kota dari seluruh Provinsi" << endl;
+    cout << "10. Mengitung jumlah kota dari seluruh provinsi" << endl;
     cout << "0. Keluar" << endl;
 
     int n;

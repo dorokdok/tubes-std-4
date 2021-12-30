@@ -61,7 +61,7 @@ void showParent(parentDLL list);
 
 int menu();
 void loopParent(parentDLL List, adr_parent &p, int n);
-
+int countAllCity(parentDLL List);
 
 
 #endif // TUBES_H_INCLUDED

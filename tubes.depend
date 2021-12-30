@@ -1,11 +1,13 @@
 # depslib dependency file v1.0
-1640711261 source:e:\file kuliah\semester 3\struktur data\tubes-std-4\main.cpp
+1640878590 source:e:\file kuliah\semester 3\struktur data\tubes-std-4\main.cpp
 	"tubes.h"
 
-1640710170 e:\file kuliah\semester 3\struktur data\tubes-std-4\tubes.h
+1640878492 e:\file kuliah\semester 3\struktur data\tubes-std-4\tubes.h
 	<iostream>
+	<string>
+	<bits/stdc++.h>
 
-1640711965 source:e:\file kuliah\semester 3\struktur data\tubes-std-4\tubes.cpp
+1640878658 source:e:\file kuliah\semester 3\struktur data\tubes-std-4\tubes.cpp
 	"tubes.h"
 
 1640772730 source:d:\data amburadul\dio++++++\git gud\tubes-std-4\tubes.cpp

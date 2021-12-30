@@ -91,6 +91,13 @@ int main()
             } else {
                 cout << "Tidak ada Data Provinsi" << endl << endl;
             }
+        } else if (n==10){
+            if (countAllCity(List) == 0 ){
+                cout << "Tidak ada kota pada list" << endl;
+            } else {
+                cout << "Pada list, terdapat sebanyak: " << countAllCity(List) << " kota" << endl;
+            }
+            cout << endl;
         }
     }
 }
