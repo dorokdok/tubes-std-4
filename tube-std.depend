@@ -1,0 +1,12 @@
+# depslib dependency file v1.0
+1641482953 source:d:\data amburadul\dio++++++\code kuliah\c++\tube-std\tubes.cpp
+	"tubes.h"
+
+1641482919 d:\data amburadul\dio++++++\code kuliah\c++\tube-std\tubes.h
+	<iostream>
+	<string>
+	<bits/stdc++.h>
+
+1641483277 source:d:\data amburadul\dio++++++\code kuliah\c++\tube-std\main.cpp
+	"tubes.h"
+

@@ -1,6 +1,5 @@
 #include "tubes.h"
 
-
 void createNewChild(string namaKota, float suhu, adr_child &p){
     //Create new element kaya biasa aja
     p = new elm_child;

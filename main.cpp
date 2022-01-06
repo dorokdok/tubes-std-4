@@ -1,5 +1,7 @@
 #include "tubes.h"
 
+using namespace std;
+
 int main()
 {
     adr_parent parent;
@@ -92,19 +94,28 @@ int main()
                 cout << "Tidak ada Data Provinsi" << endl << endl;
             }
         } else if (n==10){
-            if (countAllCity(List) == 0 ){
-                cout << "Tidak ada kota pada list" << endl;
+            if (first(List) != nil) {
+                if (countAllCity(List) == 0 ){
+                    cout << "Tidak ada kota pada list" << endl;
+                } else {
+                    cout << "Pada list, terdapat sebanyak: " << countAllCity(List) << " kota" << endl;
+                }
+                cout << endl;
             } else {
-                cout << "Pada list, terdapat sebanyak: " << countAllCity(List) << " kota" << endl;
+                cout << "Tidak ada Data Provinsi" << endl << endl;
             }
-            cout << endl;
         } else if (n==11){
-            if (maxDegree(List) == nil){
-                cout << "Tidak ada kota yang tersedia" << endl;
+            if (first(List) != nil) {
+                if (maxDegree(List) == nil){
+                    cout << "Tidak ada kota yang tersedia" << endl;
+                } else {
+                    cout << "Suhu tertinggi terdapat pada kota: " << info(maxDegree(List)).nama_kota << " dengan suhu: " << info(maxDegree(List)).suhu << endl;
+                }
+                cout << endl;
             } else {
-                cout << "Suhu tertinggi terdapat pada kota: " << info(maxDegree(List)).nama_kota << " dengan suhu: " << info(maxDegree(List)).suhu << endl;
+                cout << "Tidak ada Data Provinsi" << endl << endl;
             }
-            cout << endl;
         }
     }
+    cout << "Keluar Program" << endl;
 }
